@@ -13,18 +13,18 @@ app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // rutas
-const supletoriaRouter = require('./routes/supletoriaRouter');
+const ServerRouter = require('./routes/ServerRouter');
 
 
 // usar est ruta 
 
-app.use('/supletoria', supletoriaRouter);
+app.use('/server', ServerRouter);
 
 
 
 // usar este puerto para el servidor
 var server = {
-  port: 8090
+  port: 3000
 };
 
 app.listen(server.port,'0.0.0.0', () => console.log(`Server started, listening on port: ${server.port}`));

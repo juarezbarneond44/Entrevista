@@ -1,0 +1,80 @@
+<app-nav-bar></app-nav-bar>
+
+<br>
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+
+        <li class="page-item">
+            <div class="input-group mb-3">
+                <button class="btn btn-outline-secondary" type="button" id="button-addon1"
+                    (click)="before()">Anterior</button>
+                <input type="text" class="form-control" placeholder="Buscar" aria-label="Buscar"
+                    (keyup.enter)="findOrderName()" aria-describedby="button-addon2" [(ngModel)]="orderName">
+
+
+                <button class="btn btn-outline-secondary" type="button" id="button-addon2"
+                    (click)="after()">Siguiente</button>
+            </div>
+        </li>
+
+
+
+    </ul>
+</nav>
+
+  
+    <div class="container">
+        <div class="row">
+        
+          <div class="col-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Imagen</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Total</th>
+                        <th scope="col">Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ng-container *ngFor="let item of auxData; let i = index">
+                        <tr>
+                            <td>
+                                
+                                <div  *ngIf=" windowWidth<1000"><h5>{{i+1}}</h5></div>
+                                <div  *ngIf=" windowWidth>=1000"><h2>{{i+1}}</h2></div>
+                             
+                            </td>
+                            <td>
+                                <img src={{item.product.url}} class="img-thumbnail" width="75">
+                            </td>
+                            <td>
+                                <div  *ngIf=" windowWidth<1000"><h5>{{item.product.name}}</h5></div>
+                                <div  *ngIf=" windowWidth>=1000"><h2>{{item.product.name}}</h2></div>
+                            </td>
+                            <td>
+                                <div  *ngIf=" windowWidth<1000"><h5>{{item.order.date}}</h5></div>
+                                <div  *ngIf=" windowWidth>=1000"><h2>{{item.order.date}}</h2></div>
+                            </td>
+                            <td>
+                                <div  *ngIf=" windowWidth<1000"><h5>Q{{item.order.total}}</h5></div>
+                                <div  *ngIf=" windowWidth>=1000"><h2>Q{{item.order.total}}</h2></div>
+                            </td>
+                            <td>
+                                <a href="detail/{{item.order.purchase}}" class="btn btn-outline-ligh">
+                                    <mat-icon style="-webkit-text-fill-color:gray">info</mat-icon>
+                                </a>
+                            </td>
+                        </tr>
+                    </ng-container>
+                </tbody>
+            </table>
+          </div>
+       
+        </div>
+
+
+
+        

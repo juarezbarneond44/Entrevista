@@ -1,0 +1,100 @@
+<app-nav-bar></app-nav-bar>
+<br>
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+
+            <div class="card bg-light mb-3" style="max-width: 18rem;">
+
+                <div class="card-header">
+                    <mat-icon style="-webkit-text-fill-color:gray">shopping_cart</mat-icon>Resumen De Compra
+                </div>
+                <div class="card-body">
+
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Producto
+                            <span class="">Q{{data.Purchase.total}}</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <div style="color: #CAC7C7;">
+                                Costo De envio </div>
+                            <div style="color: #CAC7C7;">
+                                <span class="">Q{{(data.Purchase.total*data.Purchase.tax).toFixed(2)}}</span>
+                            </div>
+                        </li>
+                    </ul>
+                    <hr>
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+
+                            Pago Total
+
+                            <span class="">Q{{(data.Purchase.total*(data.Purchase.tax+1)).toFixed(2)}}</span>
+                        </li>
+                    </ul>
+
+
+
+
+                </div>
+            </div>
+            <br>
+            <div class="card bg-light mb-3" style="max-width: 18rem;">
+                <div class="card-header">
+                    <mat-icon style="-webkit-text-fill-color:gray">credit_card</mat-icon>
+                    Metodo De Pago
+                </div>
+                <div class="card-body">
+
+                    <h3 class="card-title">Compra realizada con {{data.Purchase.purchaseType}}</h3>
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Pago
+                            <span class="">Q{{(data.Purchase.total*(data.Purchase.tax+1)).toFixed(2)}}</span>
+                        </li>
+                    </ul>
+                    <hr>
+                    <h3 class="card-title">Pago realizado el {{data.Purchase.dateBuy}}</h3>
+                </div>
+            </div>
+            <br>
+            <div class="card bg-light mb-3" style="max-width: 18rem;">
+
+                <div class="card-header">
+                    <mat-icon style="-webkit-text-fill-color:gray">location_on</mat-icon>Lugar De Entrega
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{data.Purchase.dir}}</p>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="col-6">
+            <div class="card bg-light mb-3" style="max-width: 18rem;">
+                <div class="card-header">
+
+                    <h3>
+                        <mat-icon style="-webkit-text-fill-color:gray">shopping_cart</mat-icon>
+                        Compraste
+                    </h3> Entregado el {{data.Purchase.date}}
+                </div>
+                <div class="card-body">
+                    <img src={{data.product.url}} class="img-thumbnail" width="100%">
+                    <h2 class="card-title">{{data.product.name}}</h2>
+                    <hr>
+                    <p class="card-text">{{data.product.description}}</p>
+                    Color:<span class="badge "
+                        style="background-color:{{data.product.color}}">{{data.product.color}}</span>
+                    <p class="card-text">Q{{data.product.cantidad}} x 1 unidad</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
